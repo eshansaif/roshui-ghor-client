@@ -17,6 +17,7 @@ export default function AllRecipes() {
     }
     async function loadCategories() {
       const data = await axios.get("http://localhost:3000/categories");
+      console.log(data);
       if (data?.status === 200) {
         setCategories(data?.data);
       }

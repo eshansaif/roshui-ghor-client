@@ -39,7 +39,7 @@ export default function Home() {
         <h1 className="text-4xl my-20 text-center">Our Recipe Categories</h1>
         <div className="grid grid-cols-3 md:grid-cols-6 gap-6">
           {categories?.map((category) => (
-            <CategoryCard key={category?.id} category={category} />
+            <CategoryCard key={category?._id} category={category} />
           ))}
         </div>
       </div>
@@ -50,7 +50,7 @@ export default function Home() {
           {shuffleArray([...recipes])
             ?.slice(0, 4)
             ?.map((recipe) => (
-              <RecepiCard key={recipe?.id} recipe={recipe} />
+              <RecepiCard key={recipe?._id} recipe={recipe} />
             ))}
         </div>
       </div>
@@ -63,7 +63,7 @@ export default function Home() {
             ?.reverse()
             ?.slice(0, 4)
             ?.map((recipe) => (
-              <RecepiCard key={recipe?.id} recipe={recipe} />
+              <RecepiCard key={recipe?._id} recipe={recipe} />
             ))}
         </div>
       </div>
