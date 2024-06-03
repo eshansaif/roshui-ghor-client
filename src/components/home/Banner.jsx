@@ -1,6 +1,3 @@
-// import banner1 from "../../assets/image_01.jpeg";
-import banner2 from "../../assets/banner.jpg";
-
 export default function Banner() {
   return (
     <div
