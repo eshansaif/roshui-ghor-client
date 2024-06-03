@@ -1,6 +1,8 @@
-***The live link of this project is: https://baburchi-king.web.app/  ***
-* This Project displays the Chef list and Chef Recipe of Different subcontinet cuisine.
-* In the homepage data is loaded from backend, and display different ChefList, There have some basic information of Chefs
-* In the Chef's card, there is Button named View Recipe, By Clicking on this button, it will be redirected to the recipe list of chefs
-* If the users are not logged in, the users wont be able to view the chefs recipe page.
-* In this project, three login systems are included using firebase authentication system 
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
