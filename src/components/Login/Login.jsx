@@ -1,8 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
-import { GithubAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 
 function Login() {
   const { signIn, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
@@ -19,31 +18,30 @@ function Login() {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    // console.log(email, password);
     setError("");
     signIn(email, password)
       .then((result) => {
-        const loggedUser = result.user;
+        const loggedUser = result?.user;
         console.log(loggedUser);
         form.reset();
         navigate(from, { replace: true });
       })
       .catch((err) => {
+        switch (err.code) {
+          case "auth/user-not-found":
+            setError("You are not registered, please register first.");
+            break;
+          case "auth/invalid-login-credentials":
+            setError(
+              "Invalid login credentials. Please check your email and password."
+            );
+            break;
+          default:
+            setError(err.message);
+        }
         console.error(err);
-        setError(err.message);
       });
   };
-  // const loginWithGoogleHandler = () => {
-  //     loginWithGoogle(googleProvider)
-  //         .then(result => {
-  //             const loggedInUser = result.user;
-  //             setUser(loggedInUser);
-  //             navigate(from, { replace: true });
-  //         })
-  //         .catch(err => {
-  //             console.log(err);
-  //         })
-  // }
 
   const loginWithGoogleHandler = () => {
     loginWithGoogle(googleProvider)
@@ -54,7 +52,7 @@ function Login() {
         navigate(from || "/", { replace: true });
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
         setError(err.message);
       });
   };
@@ -68,7 +66,7 @@ function Login() {
         navigate(from || "/", { replace: true });
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
         setError(err.message);
       });
   };
@@ -120,7 +118,7 @@ function Login() {
               value="Login"
             />
             <p>
-              Are you new to Baburchi King?{" "}
+              Are you new to Roshui Ghor?{" "}
               <Link
                 to="/register"
                 className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
@@ -132,7 +130,7 @@ function Login() {
           {error && <p className="text-red-600 mt-3 text-center">{error}</p>}
         </form>
 
-        <div className="flex items-center  my-6">
+        <div className="flex items-center my-6">
           <hr className="border-t border-gray-300 flex-grow mr-3" />
           <h2 className="text-gray-800 text-lg font-bold">Or</h2>
           <hr className="border-t border-gray-300 flex-grow ml-3" />
