@@ -1,17 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import swal from "sweetalert";
+import useAuth from "../../hooks/useAuth";
 // import { v4 as uuidv4 } from "uuid";
 
 const AddRecipe = () => {
   const [categories, setCategories] = useState();
+  const { user } = useAuth();
+
+  console.log(user?.email);
 
   useEffect(() => {
     async function load() {
       const data = await axios.get("http://localhost:3000/categories");
-      console.log(data?.data);
+      // console.log(data?.data);
       if (data?.status === 200) {
-        console.log(data?.data.categories);
+        // console.log(data?.data.categories);
         setCategories(data?.data);
       }
     }
@@ -31,6 +35,7 @@ const AddRecipe = () => {
     const image = form.image.value;
     const category = form.category.value;
     const description = form.description.value;
+
     // console.log(id);
 
     const recipeData = {
@@ -40,6 +45,7 @@ const AddRecipe = () => {
       image,
       category,
       description,
+      email: user?.email,
     };
 
     await swal({

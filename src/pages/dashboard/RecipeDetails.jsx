@@ -28,6 +28,7 @@ const RecipeDetails = () => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{recipeDetails?.title}</h2>
+          <p>Chef: {recipeDetails?.email ? recipeDetails?.email : "Unknown"}</p>
           <p>Category: {recipeDetails?.category}</p>
           <p>Price: {recipeDetails?.price} /-</p>
           <p>Description: {recipeDetails?.description}</p>

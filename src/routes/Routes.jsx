@@ -16,6 +16,7 @@ import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import EditProfile from "../pages/dashboard/EditProfile";
 import ChefRecipes from "../pages/ChefRecipes";
+import MyRecipe from "../pages/dashboard/MyRecipe";
 
 export const router = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ export const router = createBrowserRouter([
       {
         path: "profile/edit/:id",
         element: <EditProfile />,
+      },
+      {
+        path: "my-recipe/:email",
+        element: <MyRecipe />,
       },
     ],
   },

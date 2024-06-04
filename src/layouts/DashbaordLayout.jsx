@@ -4,7 +4,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 export default function DashbaordLayout() {
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
 
   const handleLogout = async () => {
     await logout();
@@ -41,8 +41,6 @@ export default function DashbaordLayout() {
               </Link>
             </li>
             <li>
-              {/* <Link to={"/dashboard/manage-recipes"}>Mangae All Recipes</Link> */}
-
               <NavLink to="/dashboard/manage-recipes">
                 {({ isActive }) => (
                   <span
@@ -58,7 +56,6 @@ export default function DashbaordLayout() {
               </NavLink>
             </li>
             <li>
-              {/* <Link to={"/dashboard/add-recipe"}>Add Recipe</Link> */}
               <NavLink to="/dashboard/add-recipe">
                 {({ isActive }) => (
                   <span
@@ -69,6 +66,22 @@ export default function DashbaordLayout() {
                     }
                   >
                     Add Recipe
+                  </span>
+                )}
+              </NavLink>
+            </li>
+            <li>
+              {/* <Link to={"/dashboard/add-recipe"}>Add Recipe</Link> */}
+              <NavLink to={`/dashboard/my-recipe/${user?.email}`}>
+                {({ isActive }) => (
+                  <span
+                    className={
+                      isActive
+                        ? "text-blue-500 font-semibold underline"
+                        : "font-bold"
+                    }
+                  >
+                    My Recipe
                   </span>
                 )}
               </NavLink>
