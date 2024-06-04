@@ -3,8 +3,6 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import DashbaordLayout from "../layouts/DashbaordLayout";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import DashboardHome from "../pages/dashboard/DashboardHome";
 import ManageAllRecipe from "../pages/dashboard/ManageAllRecipe";
@@ -14,6 +12,8 @@ import AllRecipes from "../pages/AllRecipes";
 import Contact from "../pages/dashboard/Contact";
 import RecipeDetails from "../pages/dashboard/RecipeDetails";
 import RecipesByCategory from "../pages/RecipesByCategory";
+import Login from "../pages/Login";
+import Registration from "../pages/Registration";
 
 export const router = createBrowserRouter([
   {
@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/register",
-    element: <Register />,
+    element: <Registration />,
   },
   {
     path: "/dashboard",

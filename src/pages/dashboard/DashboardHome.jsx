@@ -1,8 +1,7 @@
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase/firebase.config";
+import useAuth from "../../hooks/useAuth";
 
 export default function DashboardHome() {
-  const [user] = useAuthState(auth);
+  const { user } = useAuth();
   console.log(user);
   return (
     <div className="bg-blue-100 p-8 rounded-md">

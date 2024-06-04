@@ -30,7 +30,7 @@ export default function ManageAllRecipe() {
         <tbody>
           {recipes?.map((recipe) => (
             <RecipeRow
-              key={recipe?.id}
+              key={recipe?._id}
               recipe={recipe}
               recipes={recipes}
               setRescipes={setRescipes}

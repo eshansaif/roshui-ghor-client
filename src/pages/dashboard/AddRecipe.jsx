@@ -9,9 +9,10 @@ const AddRecipe = () => {
   useEffect(() => {
     async function load() {
       const data = await axios.get("http://localhost:3000/categories");
+      console.log(data?.data);
       if (data?.status === 200) {
-        console.log(data?.data[0].categories);
-        setCategories(data?.data[0].categories);
+        console.log(data?.data.categories);
+        setCategories(data?.data);
       }
     }
 

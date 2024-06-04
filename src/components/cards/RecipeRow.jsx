@@ -21,7 +21,7 @@ export default function RecipeRow({ recipe, setRescipes, recipes }) {
         if (willDelete) {
           axios.delete(`http://localhost:3000/recipes/${id}`);
           console.log("Post deleted:", id);
-          setRescipes(recipes.filter((r) => r.id !== id));
+          setRescipes(recipes.filter((r) => r._id !== id));
           swal("Poof! Your recipe has been deleted!", {
             icon: "success",
           });
@@ -35,25 +35,25 @@ export default function RecipeRow({ recipe, setRescipes, recipes }) {
   };
   return (
     <tr>
-      <th>{recipe?.id}</th>
+      <th>{recipe?._id}</th>
       <td>{recipe?.title}</td>
       <td>{recipe?.price}</td>
       <td>{recipe?.category}</td>
       <td className="flex gap-2">
         <Link
-          to={`/dashboard/recipe-details/${recipe?.id}`}
+          to={`/dashboard/recipe-details/${recipe?._id}`}
           className="btn btn-xs btn-primary"
         >
           View
         </Link>
         <Link
-          to={`/dashboard/edit-recipe/${recipe?.id}`}
+          to={`/dashboard/edit-recipe/${recipe?._id}`}
           className="btn btn-xs btn-neutral"
         >
           Edit
         </Link>
         <button
-          onClick={() => handleDelete(recipe?.id)}
+          onClick={() => handleDelete(recipe?._id)}
           className="btn btn-xs btn-error"
         >
           Delete
