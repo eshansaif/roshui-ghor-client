@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GoogleLogin from "../components/Login-Registration/GoogleLogin";
+import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
@@ -123,7 +124,8 @@ const Registration = () => {
                 value="Register"
               />
             </div>
-            <div className="mt-6">
+            <hr className="mt-3" />
+            <div className="mt-3">
               <GoogleLogin />
             </div>
             <div className="mt-6">

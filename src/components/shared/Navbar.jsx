@@ -61,6 +61,19 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li>
+              <NavLink to="/chefs">
+                {({ isActive }) => (
+                  <span
+                    className={
+                      isActive ? "text-blue-500 font-semibold underline" : ""
+                    }
+                  >
+                    Chefs
+                  </span>
+                )}
+              </NavLink>
+            </li>
+            <li>
               <a>About Us</a>
             </li>
             <li>
@@ -99,6 +112,19 @@ export default function Navbar() {
                   }
                 >
                   All Recipes
+                </span>
+              )}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/chefs">
+              {({ isActive }) => (
+                <span
+                  className={
+                    isActive ? "text-blue-500 font-semibold underline" : ""
+                  }
+                >
+                  Chefs
                 </span>
               )}
             </NavLink>

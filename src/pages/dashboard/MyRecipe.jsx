@@ -6,6 +6,7 @@ const MyRecipe = () => {
   const { user } = useAuth();
   console.log(user?.email);
   const [myRecipe, setMyRecipe] = useState([]);
+  console.log(myRecipe.length);
   useEffect(() => {
     fetch(`http://localhost:3000/recipes/chef/${user?.email}`)
       .then((res) => res.json())
@@ -14,11 +15,16 @@ const MyRecipe = () => {
   return (
     <div className="mx-16">
       <h1 className="text-4xl my-4 text-center">See Your All Recipe</h1>
-      <div className="grid md:grid-cols-4 gap-6 mb-4">
-        {myRecipe?.map((recipe) => (
-          <RecepiCard key={recipe?._id} recipe={recipe} />
-        ))}
-      </div>
+
+      {myRecipe?.length == 0 ? (
+        <p>No Recipe found, Please Add Recipe By clicking Add Recipe Button</p>
+      ) : (
+        <div className="grid md:grid-cols-4 gap-6 mb-4">
+          {myRecipe?.map((recipe) => (
+            <RecepiCard key={recipe?._id} recipe={recipe} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
