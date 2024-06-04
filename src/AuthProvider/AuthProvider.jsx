@@ -20,61 +20,40 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
 
-  const createUser = async (email, password) => {
+  const createUser = (email, password) => {
     setLoading(true);
-    try {
-      return await createUserWithEmailAndPassword(auth, email, password);
-    } catch (error) {
-      console.error("Error creating user:", error);
-    } finally {
-      setLoading(false);
-    }
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const signIn = async (email, password) => {
+  const signIn = (email, password) => {
     setLoading(true);
-    try {
-      return await signInWithEmailAndPassword(auth, email, password);
-    } catch (error) {
-      console.error("Error signing in:", error);
-    } finally {
-      setLoading(false);
-    }
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const logout = async () => {
-    setLoading(true);
-    try {
-      await signOut(auth);
-      setUser(null);
-    } catch (error) {
-      console.error("Error signing out:", error);
-    } finally {
-      setLoading(false);
-    }
+  const logout = () => {
+    return signOut(auth).then(() => setUser(null));
   };
 
-  const googleLogin = async () => {
-    setLoading(true);
-    try {
-      return await signInWithPopup(auth, googleProvider);
-    } catch (error) {
-      console.error("Error with Google sign-in:", error);
-    } finally {
-      setLoading(false);
-    }
+  const googleLogin = () => {
+    return signInWithPopup(auth, googleProvider);
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
+    const unscubcribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+        setLoading(false);
+        console.log(currentUser);
+      } else {
+        setLoading(false);
+      }
     });
-    return unsubscribe;
+    return () => {
+      return unscubcribe();
+    };
   }, []);
 
   const authInfo = { user, googleLogin, createUser, signIn, logout, loading };
-
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

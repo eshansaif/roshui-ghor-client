@@ -60,7 +60,7 @@ export default function EditProfile() {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white p-8 rounded-md shadow-md">
+    <div className="w-full mx-auto bg-white p-8 rounded-md shadow-md">
       <h1 className="text-2xl font-bold mb-6">Edit Profile</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

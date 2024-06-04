@@ -83,9 +83,7 @@ export default function Home() {
             height="315"
             src="https://www.youtube.com/embed/Lw7EixBGu60?si=_DoUwFK4HGIA9V5e"
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
 
@@ -94,9 +92,7 @@ export default function Home() {
             height="315"
             src="https://www.youtube.com/embed/6GIGcq8SCpE?si=o-VoVhQDZDSlTTsX"
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
 
@@ -105,9 +101,7 @@ export default function Home() {
             height="315"
             src="https://www.youtube.com/embed/BHftqVU6IPk?si=uqY1KhTlnP3pQDfL"
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
 
