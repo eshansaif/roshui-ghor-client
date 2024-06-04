@@ -14,6 +14,8 @@ import RecipeDetails from "../pages/dashboard/RecipeDetails";
 import RecipesByCategory from "../pages/RecipesByCategory";
 import Login from "../pages/Login";
 import Registration from "../pages/Registration";
+import EditProfile from "../pages/dashboard/EditProfile";
+import ChefRecipes from "../pages/ChefRecipes";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +42,10 @@ export const router = createBrowserRouter([
         path: "category/:cat",
         element: <RecipesByCategory />,
       },
+      {
+        path: "chef-recipes", // Define the path for ChefRecipes
+        element: <ChefRecipes />, // Add the ChefRecipes component
+      },
     ],
   },
   {
@@ -50,6 +56,7 @@ export const router = createBrowserRouter([
     path: "/register",
     element: <Registration />,
   },
+
   {
     path: "/dashboard",
     element: (
@@ -77,6 +84,10 @@ export const router = createBrowserRouter([
       {
         path: "recipe-details/:id",
         element: <RecipeDetails />,
+      },
+      {
+        path: "profile/edit/:id",
+        element: <EditProfile />,
       },
     ],
   },

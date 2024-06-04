@@ -4,22 +4,26 @@ import RecepiCard from "../components/cards/RecepiCard";
 import CategoryCard from "../components/cards/CategoryCard";
 
 export default function Home() {
-  const [recipes, setRescipes] = useState([]);
+  const [recipes, setRecipes] = useState([]);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    async function load() {
-      // Get recipes
-      const recipeRes = await fetch("http://localhost:3000/recipes");
-      const recipeData = await recipeRes.json();
-      setRescipes(recipeData);
+    async function loadData() {
+      try {
+        // Fetch recipes
+        const recipeRes = await fetch("http://localhost:3000/recipes");
+        const recipeData = await recipeRes.json();
+        setRecipes(recipeData);
 
-      // Get categories
-      const categoryRes = await fetch("http://localhost:3000/categories");
-      const categoryData = await categoryRes.json();
-      setCategories(categoryData);
+        // Fetch categories
+        const categoryRes = await fetch("http://localhost:3000/categories");
+        const categoryData = await categoryRes.json();
+        setCategories(categoryData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     }
-    load();
+    loadData();
   }, []);
 
   // Function to shuffle an array
@@ -67,6 +71,55 @@ export default function Home() {
             ?.map((recipe) => (
               <RecepiCard key={recipe?._id} recipe={recipe} />
             ))}
+        </div>
+      </div>
+
+      {/* Add a section for blogs or YouTube videos */}
+      <div className="mx-16">
+        <h1 className="text-4xl my-20 text-center">Recipe Blogs & Videos</h1>
+        <div className="grid md:grid-cols-3 gap-6 mb-4 me-2">
+          <iframe
+            className="w-full"
+            height="315"
+            src="https://www.youtube.com/embed/Lw7EixBGu60?si=_DoUwFK4HGIA9V5e"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+
+          <iframe
+            className="w-full"
+            height="315"
+            src="https://www.youtube.com/embed/6GIGcq8SCpE?si=o-VoVhQDZDSlTTsX"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+
+          <iframe
+            className="w-full"
+            height="315"
+            src="https://www.youtube.com/embed/BHftqVU6IPk?si=uqY1KhTlnP3pQDfL"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+
+          {/* <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/VIDEO_ID_4"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe> */}
         </div>
       </div>
     </div>
