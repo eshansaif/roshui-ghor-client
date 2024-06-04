@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 import Banner from "../components/home/Banner";
 import RecepiCard from "../components/cards/RecepiCard";
 import CategoryCard from "../components/cards/CategoryCard";
+import PopularChef from "../components/PopularChef";
+import { useLoaderData } from "react-router-dom";
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
   const [categories, setCategories] = useState([]);
+
+  const chefs = useLoaderData();
 
   useEffect(() => {
     async function loadData() {
@@ -38,6 +42,8 @@ export default function Home() {
   return (
     <div>
       <Banner />
+
+      <PopularChef chefs={chefs} />
 
       <div className="mx-16">
         <h1 className="text-4xl my-20 text-center">

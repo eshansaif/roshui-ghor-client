@@ -3,6 +3,7 @@ import GoogleLogin from "../components/Login-Registration/GoogleLogin";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import swal from "sweetalert";
 
 const Registration = () => {
   const [passMatch, setPassMatch] = useState(true);
@@ -42,7 +43,7 @@ const Registration = () => {
             body: JSON.stringify(userInfo),
           })
             .then((res) => res.json())
-            .then((data) => console.log(data));
+            .then((data) => swal("User Created Successfully"));
         }
       });
       if (user) {

@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 export default function EditProfile() {
   const { id } = useParams();
   const [formData, setFormData] = useState({
-    displayName: "",
+    name: "",
     email: "",
     phoneNumber: "",
     photoURL: "",
@@ -18,7 +18,7 @@ export default function EditProfile() {
         .then((response) => response.json())
         .then((data) => {
           setFormData({
-            displayName: data.displayName,
+            name: data.name,
             email: data.email,
             phoneNumber: data.phoneNumber,
             photoURL: data.photoURL,
@@ -65,15 +65,15 @@ export default function EditProfile() {
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label
-            htmlFor="displayName"
+            htmlFor="name"
             className="block text-sm font-medium text-gray-700"
           >
             Name
           </label>
           <input
             type="text"
-            name="displayName"
-            value={formData.displayName}
+            name="name"
+            value={formData.name}
             onChange={handleChange}
             className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
           />

@@ -1,11 +1,9 @@
 // import { auth } from "../../firebase/firebase.config";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLoaderData } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
-
-  // console.log(user);
 
   const handleLogout = async () => {
     await logout();

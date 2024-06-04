@@ -39,22 +39,25 @@ export default function AllRecipes() {
     <div className="mx-16 mb-4">
       <h1 className="text-4xl my-20 text-center">Our All Recipes</h1>
 
-      <div className="mb-8 text-center">
-        <label htmlFor="category" className="mr-2">
-          Filter by Category:{" "}
-        </label>
-        <select
-          id="category"
-          value={selectedCategory}
-          onChange={handleCategoryChange}
-        >
-          <option value="All">All</option>
-          {categories.map((category) => (
-            <option key={category.id} value={category.title}>
-              {category.title}
-            </option>
-          ))}
-        </select>
+      <div className="flex justify-end">
+        <div className="mb-8 text-center">
+          <label htmlFor="category" className="mr-2 font-semibold">
+            Filter by Category:{" "}
+          </label>
+          <select
+            className="border rounded-md"
+            id="category"
+            value={selectedCategory}
+            onChange={handleCategoryChange}
+          >
+            <option value="All">All</option>
+            {categories.map((category) => (
+              <option key={category.id} value={category.title}>
+                {category.title}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <div className="grid md:grid-cols-5 gap-6">

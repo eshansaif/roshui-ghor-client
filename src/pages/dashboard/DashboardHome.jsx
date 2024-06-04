@@ -24,7 +24,7 @@ export default function DashboardHome() {
         />
       </div>
       <h1>
-        Welcome, <span className="font-bold">{userInfo?.displayName}</span>
+        Welcome, <span className="font-bold">{userInfo?.name}</span>
       </h1>
       <p>Email: {userInfo?.email}</p>
       <p>Phone Number: {userInfo?.phoneNumber || "Not Available"}</p>
