@@ -17,6 +17,7 @@ import Registration from "../pages/Registration";
 import EditProfile from "../pages/dashboard/EditProfile";
 import ChefRecipes from "../pages/ChefRecipes";
 import MyRecipe from "../pages/dashboard/MyRecipe";
+import Chefs from "../components/Chefs";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +35,11 @@ export const router = createBrowserRouter([
       {
         path: "all-recipes",
         element: <AllRecipes />,
+      },
+      {
+        path: "chefs",
+        element: <Chefs />,
+        loader: () => fetch("http://localhost:3000/users/chefs"),
       },
       {
         path: "contact",
