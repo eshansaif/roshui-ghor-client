@@ -4,7 +4,7 @@ import ChefCard from "./cards/ChefCard";
 
 const Chefs = () => {
   const chefsData = useLoaderData();
-  console.log(chefsData);
+  // console.log(chefsData);
   return (
     <div>
       <h1 className="font-bold text-3xl text-center mt-6">See our All Chefs</h1>

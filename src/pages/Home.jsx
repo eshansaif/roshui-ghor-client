@@ -94,7 +94,6 @@ export default function Home() {
             src="https://www.youtube.com/embed/Lw7EixBGu60?si=_DoUwFK4HGIA9V5e"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
           ></iframe>
 
           <iframe
@@ -103,7 +102,6 @@ export default function Home() {
             src="https://www.youtube.com/embed/6GIGcq8SCpE?si=o-VoVhQDZDSlTTsX"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
           ></iframe>
 
           <iframe
@@ -112,7 +110,6 @@ export default function Home() {
             src="https://www.youtube.com/embed/BHftqVU6IPk?si=uqY1KhTlnP3pQDfL"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
           ></iframe>
 
           {/* <iframe
@@ -122,7 +119,7 @@ export default function Home() {
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            
           ></iframe> */}
         </div>
       </div>

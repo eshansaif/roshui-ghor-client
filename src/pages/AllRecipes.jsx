@@ -5,7 +5,7 @@ import RecepiCard from "../components/cards/RecepiCard";
 export default function AllRecipes() {
   const [recipes, setRecipes] = useState([]);
   const [categories, setCategories] = useState([]);
-  console.log(categories);
+  // console.log(categories);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function AllRecipes() {
       const data = await axios.get(
         "https://roshui-ghor-backend.vercel.app/categories"
       );
-      console.log(data);
+      // console.log(data);
       if (data?.status === 200) {
         setCategories(data?.data);
       }
@@ -66,7 +66,7 @@ export default function AllRecipes() {
 
       <div className="grid md:grid-cols-5 gap-6">
         {filteredRecipes.map((recipe) => (
-          <RecepiCard key={recipe.id} recipe={recipe} />
+          <RecepiCard key={recipe._id} recipe={recipe} />
         ))}
       </div>
     </div>

@@ -4,9 +4,9 @@ import RecepiCard from "../../components/cards/RecepiCard";
 
 const MyRecipe = () => {
   const { user } = useAuth();
-  console.log(user?.email);
+  // console.log(user?.email);
   const [myRecipe, setMyRecipe] = useState([]);
-  console.log(myRecipe.length);
+  // console.log(myRecipe.length);
   useEffect(() => {
     fetch(`https://roshui-ghor-backend.vercel.app/recipes/chef/${user?.email}`)
       .then((res) => res.json())

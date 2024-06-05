@@ -7,9 +7,8 @@ import useAuth from "../../hooks/useAuth";
 const AddRecipe = () => {
   const [categories, setCategories] = useState();
   const { user } = useAuth();
-  // const token = localStorage.getItem("token");
 
-  console.log(user?.email);
+  // console.log(user?.email);
 
   useEffect(() => {
     async function load() {

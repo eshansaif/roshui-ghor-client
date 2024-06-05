@@ -5,10 +5,10 @@ import RecepiCard from "../components/cards/RecepiCard";
 
 const RecipesByCategory = () => {
   const { cat } = useParams();
-  console.log(cat);
+  // console.log(cat);
   const [recipesByCat, setRecipesByCat] = useState([]);
 
-  console.log(recipesByCat);
+  // console.log(recipesByCat);
 
   useEffect(() => {
     const loadRecipes = async () => {
@@ -16,7 +16,7 @@ const RecipesByCategory = () => {
         const response = await axios.get(
           "https://roshui-ghor-backend.vercel.app/recipes"
         );
-        console.log(response);
+        // console.log(response);
         if (response.status === 200) {
           const filteredRecipes = response.data.filter(
             (recipe) => recipe.category === cat
@@ -38,7 +38,7 @@ const RecipesByCategory = () => {
       </h1>
       <div className="grid md:grid-cols-4 gap-6">
         {recipesByCat.map((recipe) => (
-          <RecepiCard key={recipe.id} recipe={recipe} />
+          <RecepiCard key={recipe._id} recipe={recipe} />
         ))}
       </div>
     </div>
