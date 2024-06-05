@@ -11,7 +11,9 @@ const RecipeDetails = () => {
 
   useEffect(() => {
     async function load() {
-      const recipeData = await axios.get(`http://localhost:3000/recipes/${id}`);
+      const recipeData = await axios.get(
+        `https://roshui-ghor-backend.vercel.app/recipes/${id}`
+      );
       // console.log(recipeData.data);
       if (recipeData?.status === 200) {
         setRecipeDetails(recipeData?.data);

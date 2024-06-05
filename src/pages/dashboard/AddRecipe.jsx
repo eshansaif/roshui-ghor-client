@@ -13,7 +13,9 @@ const AddRecipe = () => {
 
   useEffect(() => {
     async function load() {
-      const data = await axios.get("http://localhost:3000/categories");
+      const data = await axios.get(
+        "https://roshui-ghor-backend.vercel.app/categories"
+      );
       // console.log(data?.data);
       if (data?.status === 200) {
         // console.log(data?.data.categories);
@@ -57,7 +59,7 @@ const AddRecipe = () => {
       if (willAdd) {
         try {
           const response = await axios.post(
-            "http://localhost:3000/recipes",
+            "https://roshui-ghor-backend.vercel.app/recipes",
             recipeData,
             {
               headers: {

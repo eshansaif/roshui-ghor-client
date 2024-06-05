@@ -8,7 +8,7 @@ export default function DashboardHome() {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/user/${user.email}`)
+      fetch(`https://roshui-ghor-backend.vercel.app/user/${user.email}`)
         .then((res) => res.json())
         .then((data) => setUserInfo(data));
     }

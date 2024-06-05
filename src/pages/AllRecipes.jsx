@@ -10,13 +10,17 @@ export default function AllRecipes() {
 
   useEffect(() => {
     async function loadRecipes() {
-      const data = await axios.get("http://localhost:3000/recipes");
+      const data = await axios.get(
+        "https://roshui-ghor-backend.vercel.app/recipes"
+      );
       if (data?.status === 200) {
         setRecipes(data?.data);
       }
     }
     async function loadCategories() {
-      const data = await axios.get("http://localhost:3000/categories");
+      const data = await axios.get(
+        "https://roshui-ghor-backend.vercel.app/categories"
+      );
       console.log(data);
       if (data?.status === 200) {
         setCategories(data?.data);

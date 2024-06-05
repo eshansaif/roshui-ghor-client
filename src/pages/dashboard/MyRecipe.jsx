@@ -8,7 +8,7 @@ const MyRecipe = () => {
   const [myRecipe, setMyRecipe] = useState([]);
   console.log(myRecipe.length);
   useEffect(() => {
-    fetch(`http://localhost:3000/recipes/chef/${user?.email}`)
+    fetch(`https://roshui-ghor-backend.vercel.app/recipes/chef/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyRecipe(data));
   }, [user]);

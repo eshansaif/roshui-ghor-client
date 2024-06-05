@@ -10,7 +10,9 @@ export default function ManageAllRecipe() {
   useEffect(() => {
     async function loadRecipes() {
       try {
-        const response = await axios.get("http://localhost:3000/recipes");
+        const response = await axios.get(
+          "https://roshui-ghor-backend.vercel.app/recipes"
+        );
         if (response.status === 200) {
           setRecipes(response.data);
         }

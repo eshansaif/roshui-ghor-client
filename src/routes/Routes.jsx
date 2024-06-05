@@ -28,7 +28,8 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: () => fetch("http://localhost:3000/users/chefs"),
+        loader: () =>
+          fetch("https://roshui-ghor-backend.vercel.app/users/chefs"),
       },
       {
         path: "about",
@@ -41,7 +42,8 @@ export const router = createBrowserRouter([
       {
         path: "chefs",
         element: <Chefs />,
-        loader: () => fetch("http://localhost:3000/users/chefs"),
+        loader: () =>
+          fetch("https://roshui-ghor-backend.vercel.app/users/chefs"),
       },
       {
         path: "contact",

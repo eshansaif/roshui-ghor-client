@@ -14,7 +14,7 @@ const ChefRecipes = () => {
     const fetchRecipesByChef = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/recipes/chef/${email}`
+          `https://roshui-ghor-backend.vercel.app/recipes/chef/${email}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch recipes");

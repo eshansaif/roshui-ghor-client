@@ -15,7 +15,7 @@ export default function EditProfile() {
 
   useEffect(() => {
     if (id) {
-      fetch(`http://localhost:3000/user/get/${id}`)
+      fetch(`https://roshui-ghor-backend.vercel.app/user/get/${id}`)
         .then((response) => response.json())
         .then((data) => {
           setFormData({
@@ -38,7 +38,7 @@ export default function EditProfile() {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:3000/user/${formData.email}`,
+        `https://roshui-ghor-backend.vercel.app/user/${formData.email}`,
         {
           method: "PATCH",
           headers: {

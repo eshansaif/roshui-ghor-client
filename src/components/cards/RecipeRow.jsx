@@ -21,7 +21,7 @@ export default function RecipeRow({ recipe, setRecipes, recipes }) {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          axios.delete(`http://localhost:3000/recipes/${id}`, {
+          axios.delete(`https://roshui-ghor-backend.vercel.app/recipes/${id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

@@ -35,7 +35,7 @@ const Registration = () => {
             email: data?.user?.email,
             name: name,
           };
-          fetch("http://localhost:3000/user", {
+          fetch("https://roshui-ghor-backend.vercel.app/user", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -45,6 +45,7 @@ const Registration = () => {
             .then((res) => res.json())
             .then((data) => {
               console.log(data);
+
               swal("User Created Successfully");
             });
         }

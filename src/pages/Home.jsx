@@ -15,12 +15,16 @@ export default function Home() {
     async function loadData() {
       try {
         // Fetch recipes
-        const recipeRes = await fetch("http://localhost:3000/recipes");
+        const recipeRes = await fetch(
+          "https://roshui-ghor-backend.vercel.app/recipes"
+        );
         const recipeData = await recipeRes.json();
         setRecipes(recipeData);
 
         // Fetch categories
-        const categoryRes = await fetch("http://localhost:3000/categories");
+        const categoryRes = await fetch(
+          "https://roshui-ghor-backend.vercel.app/categories"
+        );
         const categoryData = await categoryRes.json();
         setCategories(categoryData);
       } catch (error) {

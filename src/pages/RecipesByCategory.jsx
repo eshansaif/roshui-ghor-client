@@ -13,7 +13,9 @@ const RecipesByCategory = () => {
   useEffect(() => {
     const loadRecipes = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/recipes");
+        const response = await axios.get(
+          "https://roshui-ghor-backend.vercel.app/recipes"
+        );
         console.log(response);
         if (response.status === 200) {
           const filteredRecipes = response.data.filter(
