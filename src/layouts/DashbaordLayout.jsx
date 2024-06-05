@@ -41,6 +41,22 @@ export default function DashbaordLayout() {
                 Roshui Ghor
               </Link>
             </li>
+
+            <li>
+              <NavLink to="/dashboard/stats">
+                {({ isActive }) => (
+                  <span
+                    className={
+                      isActive
+                        ? "text-blue-500 font-semibold underline"
+                        : "font-bold"
+                    }
+                  >
+                    Stats
+                  </span>
+                )}
+              </NavLink>
+            </li>
             <li>
               <NavLink to="/dashboard/manage-recipes">
                 {({ isActive }) => (

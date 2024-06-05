@@ -18,6 +18,7 @@ import EditProfile from "../pages/dashboard/EditProfile";
 import ChefRecipes from "../pages/ChefRecipes";
 import MyRecipe from "../pages/dashboard/MyRecipe";
 import Chefs from "../components/Chefs";
+import StatsDashboard from "../pages/dashboard/StatsDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ export const router = createBrowserRouter([
       {
         path: "manage-recipes",
         element: <ManageAllRecipe />,
+      },
+      {
+        path: "stats",
+        element: <StatsDashboard />,
       },
       {
         path: "add-recipe",
