@@ -43,10 +43,8 @@ export default function Home() {
     <div>
       <Banner />
 
-      <PopularChef chefs={chefs} />
-
       <div className="mx-16">
-        <h1 className="text-4xl my-20 text-center">
+        <h1 className="text-4xl my-12 text-center">
           See Our Recipe By Category
         </h1>
         <div className="grid grid-cols-3 md:grid-cols-6 gap-6">
@@ -55,6 +53,8 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      <PopularChef chefs={chefs} />
 
       <div className="mx-16">
         <h1 className="text-4xl my-20 text-center">Popular Recipes</h1>

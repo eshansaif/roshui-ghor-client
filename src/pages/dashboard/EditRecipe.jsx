@@ -8,6 +8,7 @@ const EditRecipe = () => {
 
   const [recipeDetails, setRecipeDetails] = useState();
   const [categories, setCategories] = useState();
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     async function load() {
@@ -46,7 +47,11 @@ const EditRecipe = () => {
       description,
     };
 
-    await axios.patch(`http://localhost:3000/recipes/${id}`, recipeData);
+    await axios.patch(`http://localhost:3000/recipes/${id}`, recipeData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     swal(
       "Recipe Edited!",
       `You have updated "${title}" successfully!`,

@@ -43,7 +43,10 @@ const Registration = () => {
             body: JSON.stringify(userInfo),
           })
             .then((res) => res.json())
-            .then((data) => swal("User Created Successfully"));
+            .then((data) => {
+              console.log(data);
+              swal("User Created Successfully");
+            });
         }
       });
       if (user) {

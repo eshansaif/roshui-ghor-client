@@ -1,7 +1,8 @@
-// import { useSignOut } from "react-firebase-hooks/auth";
-// import { auth } from "../firebase/firebase.config";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FcHome } from "react-icons/fc";
 import useAuth from "../hooks/useAuth";
+import { LuLogOut } from "react-icons/lu";
 
 export default function DashbaordLayout() {
   const { logout, user } = useAuth();
@@ -18,7 +19,7 @@ export default function DashbaordLayout() {
             htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button lg:hidden"
           >
-            Open drawer
+            <GiHamburgerMenu className="text-3xl" />
           </label>
         </div>
         <Outlet />
@@ -89,10 +90,10 @@ export default function DashbaordLayout() {
           </div>
           <div className="flex gap-4">
             <Link to={"/"} className="btn btn-neutral">
-              Home
+              <FcHome className="text-3xl font-bold" title="Go To Home" />
             </Link>
             <button className="btn btn-error" onClick={handleLogout}>
-              Logout
+              <LuLogOut className="text-3xl font-bold" title="Logout" />
             </button>
           </div>
         </ul>

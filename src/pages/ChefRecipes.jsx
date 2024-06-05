@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
+import { useParams } from "react-router-dom";
+import RecepiCard from "../components/cards/RecepiCard";
 // import useAuth from "../../hooks/useAuth";
 
 const ChefRecipes = () => {
-  const { user } = useAuth();
+  // const { user } = useAuth();
   const [recipes, setRecipes] = useState([]);
+  const { email } = useParams();
+  console.log(email);
 
   useEffect(() => {
     const fetchRecipesByChef = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/recipes/chef/${user.email}`
+          `http://localhost:3000/recipes/chef/${email}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch recipes");
@@ -22,32 +26,21 @@ const ChefRecipes = () => {
       }
     };
 
-    if (user?.email) {
+    if (email) {
       fetchRecipesByChef();
     }
-  }, [user]);
+  }, []);
 
   return (
     <div className="bg-blue-100 p-8 rounded-md">
-      <h1 className="text-2xl font-bold mb-6">My Recipes</h1>
-      {recipes.length > 0 ? (
-        recipes.map((recipe) => (
-          <div
-            key={recipe._id}
-            className="mb-4 p-4 bg-white rounded-md shadow-md"
-          >
-            <h2 className="text-xl font-bold">{recipe.title}</h2>
-            <p>
-              <strong>Ingredients:</strong> {recipe.ingredients}
-            </p>
-            <p>
-              <strong>Instructions:</strong> {recipe.instructions}
-            </p>
-          </div>
-        ))
-      ) : (
-        <p>No recipes found</p>
-      )}
+      <h1 className="text-2xl font-bold mb-6">Chef Recipes</h1>
+      <div className="grid md:grid-cols-3 gap-3">
+        {recipes.length > 0 ? (
+          recipes.map((recipe) => <RecepiCard recipe={recipe} />)
+        ) : (
+          <p>No recipes found</p>
+        )}
+      </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 export default function EditProfile() {
+  const token = localStorage.getItem("token");
   const { id } = useParams();
   const [formData, setFormData] = useState({
     name: "",
@@ -42,6 +43,7 @@ export default function EditProfile() {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(formData),
         }

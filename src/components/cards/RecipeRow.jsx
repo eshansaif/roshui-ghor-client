@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import swal from "sweetalert";
 
 /* eslint-disable react/prop-types */
-export default function RecipeRow({ recipe, setRescipes, recipes }) {
+export default function RecipeRow({ recipe, setRecipes, recipes }) {
   // const handleDelete = (id) => {
   //   axios.delete()
   // };
+
+  const token = localStorage.getItem("token");
 
   const handleDelete = async (id) => {
     try {
@@ -19,9 +21,13 @@ export default function RecipeRow({ recipe, setRescipes, recipes }) {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          axios.delete(`http://localhost:3000/recipes/${id}`);
+          axios.delete(`http://localhost:3000/recipes/${id}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
           console.log("Post deleted:", id);
-          setRescipes(recipes.filter((r) => r._id !== id));
+          setRecipes(recipes.filter((r) => r._id !== id));
           swal("Poof! Your recipe has been deleted!", {
             icon: "success",
           });

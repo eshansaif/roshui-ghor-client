@@ -7,6 +7,7 @@ import useAuth from "../../hooks/useAuth";
 const AddRecipe = () => {
   const [categories, setCategories] = useState();
   const { user } = useAuth();
+  // const token = localStorage.getItem("token");
 
   console.log(user?.email);
 
@@ -27,19 +28,13 @@ const AddRecipe = () => {
     e.preventDefault();
 
     const form = e.target;
-
-    // const id = form.id.value;
-    // const id = uuidv4();
     const title = form.title.value;
     const price = form.price.value;
     const image = form.image.value;
     const category = form.category.value;
     const description = form.description.value;
 
-    // console.log(id);
-
     const recipeData = {
-      // id,
       title,
       price,
       image,
@@ -48,26 +43,43 @@ const AddRecipe = () => {
       email: user?.email,
     };
 
+    const token = localStorage.getItem("token");
+
+    console.log(token);
+
     await swal({
       title: "Are you sure?",
       text: "Once added, you will be able to see this in your recipe list!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
-    }).then((willAdd) => {
+    }).then(async (willAdd) => {
       if (willAdd) {
-        axios.post("http://localhost:3000/recipes", recipeData);
-        swal("Wow! Your recipe has been added!", {
-          icon: "success",
-        });
-        form.reset();
+        try {
+          const response = await axios.post(
+            "http://localhost:3000/recipes",
+            recipeData,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          console.log("Recipe added response:", response);
+          swal("Wow! Your recipe has been added!", {
+            icon: "success",
+          });
+          form.reset();
+        } catch (error) {
+          console.error("Error adding recipe:", error);
+          swal("Error adding recipe!", {
+            icon: "error",
+          });
+        }
       } else {
         swal("Recipe is not added!");
       }
     });
-
-    // await axios.post("http://localhost:3000/recipes", recipeData);
-    // swal("Recipe Added!", `You have added "${title}" successfully!`, "success");
   };
 
   return (

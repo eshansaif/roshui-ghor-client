@@ -1,5 +1,6 @@
 import { FaMobileRetro } from "react-icons/fa6";
 import { MdMarkEmailUnread } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const ChefCard = ({ chef }) => {
   return (
@@ -17,7 +18,9 @@ const ChefCard = ({ chef }) => {
         </p>
 
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">View All Recipes</button>
+          <Link to={`/chef-recipes/${chef?.email}`}>
+            <button className="btn btn-primary">View All Recipes</button>
+          </Link>
         </div>
       </div>
     </div>

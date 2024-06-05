@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
         element: <RecipesByCategory />,
       },
       {
-        path: "chef-recipes", // Define the path for ChefRecipes
+        path: "chef-recipes/:email", // Define the path for ChefRecipes
         element: <ChefRecipes />, // Add the ChefRecipes component
       },
     ],
