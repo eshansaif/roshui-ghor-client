@@ -46,7 +46,7 @@ const AddRecipe = () => {
 
     const token = localStorage.getItem("token");
 
-    console.log(token);
+    // console.log(token);
 
     await swal({
       title: "Are you sure?",
